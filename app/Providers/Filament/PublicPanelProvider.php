@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use App\Filament\Admin\Resources\Subreddits\SubredditResource;
 use App\Filament\Public\Pages\Home;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -29,7 +30,7 @@ final class PublicPanelProvider extends PanelProvider
             ->default()
             ->path('')
             ->colors([
-                'primary' => Color::Neutral,
+                'primary' => Color::Indigo,
             ])
             ->brandLogo(fn () => view('livewire.sidebar-collapse-button'))
             ->homeUrl('')
@@ -52,17 +53,19 @@ final class PublicPanelProvider extends PanelProvider
                 NavigationGroup::make('Blog')
                     ->icon('heroicon-o-document-text'),
             ])
-//            ->sidebarCollapsibleOnDesktop()
+            ->resources([
+                SubredditResource::class,
+            ])
             ->sidebarFullyCollapsibleOnDesktop()
 
             ->renderHook(
                 PanelsRenderHook::TOPBAR_END,
                 fn () => view('filament.custom.login-button')
             )
-            ->authMiddleware([]) // sem login
-            ->pages([Home::class]) // remove a Dashboard padrão
-            ->renderHook('panels::topbar', fn () => '') // remove topbar
-            ->renderHook('panels::user-menu', fn () => '') // remove menu de usuário
+            ->authMiddleware([])
+            ->pages([Home::class])
+            ->renderHook('panels::topbar', fn () => '')
+            ->renderHook('panels::user-menu', fn () => '')
             ->discoverPages(in: app_path('Filament/Public/Pages'), for: 'App\\Filament\\Public\\Pages');
     }
 }

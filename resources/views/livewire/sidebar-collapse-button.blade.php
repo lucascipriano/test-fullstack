@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 ?>
+
 <div class="flex items-center justify-between gap-30">
     <svg width="110" height="35" viewBox="0 0 110 35" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -41,4 +42,5 @@ declare(strict_types=1);
         </svg>
     </button>
 </div>
-<?php 
+
+<?php
