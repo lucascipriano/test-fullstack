@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Models\Subreddit;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,7 +22,10 @@ final class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->sentence,
+            'content' => fake()->paragraph,
+            'user_id' => User::factory(),
+            'subreddit_id' => Subreddit::factory(),
         ];
     }
 }
