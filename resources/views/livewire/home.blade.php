@@ -191,7 +191,7 @@ declare(strict_types=1);
                             {{-- Footer --}}
                             <div class="mt-4 flex items-center justify-between">
                                 <span class="text-sm text-[#9C9C9C]">{{ $subreddit->posts_count }} posts</span>
-                                <a href="/r/{{ $subreddit->slug }}" class="text-[#6155F5] hover:underline">
+                                <a href="/home/{{ $subreddit->slug }}" class="text-[#6155F5] hover:underline">
                                     Ver subreddit
                                 </a>
                             </div>

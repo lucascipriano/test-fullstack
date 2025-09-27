@@ -3,35 +3,42 @@
 declare(strict_types=1);
 
 ?>
+
 <div class="container mx-auto px-4 py-8">
     <div
-        class="mb-10 h-[200px] w-[1024px] flex-none rounded-[8px] border border-[#2C2C2D] bg-gradient-to-b bg-[url('mohammad-rahmani-N5bT5RctFZ8-unsplash.jpg')] from-[rgba(9,9,10,0)] to-[#09090A]"
+        class="mb-10 h-[200px] w-full flex-none rounded-[8px] border border-[#2C2C2D] bg-gradient-to-b bg-[url('mohammad-rahmani-N5bT5RctFZ8-unsplash.jpg')] from-[rgba(9,9,10,0)] to-[#09090A]"
     >
         <img src="/images/1337527.png" alt="Banner" class="h-full w-full rounded-[8px] object-cover" />
     </div>
 
     <div class="container mb-6 rounded-[12px] p-6">
-        <div class="mb-4 flex items-center gap-3">
-            <img src="/images/nerd.svg" alt="Subreddit Icon" class="h-10 w-10" />
-            <div>
-                <h1 class="text-2xl font-bold text-[#FDFDFD]">r/{{ $subreddit->name }}</h1>
-                <p class="text-[#9C9C9C]">{{ $subreddit->description }}</p>
-            </div>
+        <div class="container mb-6 rounded-[12px] p-6">
+            <div class="mb-4 flex flex-col items-center gap-3 md:flex-row md:items-center">
+                <img src="/images/nerd.svg" alt="Subreddit Icon" class="hidden h-10 w-10 md:block" />
 
-            <div class="ml-auto flex gap-3">
-                <button
-                    class="flex-none rounded-[8px] border border-[#2C2C2D] bg-transparent px-4 py-2 text-sm font-medium text-[#FDFDFD] transition-colors hover:bg-[#2C2C2D]"
-                >
-                    Entrar
-                </button>
+                <div class="flex flex-col">
+                    <h1 class="text-center text-2xl font-bold text-[#FDFDFD] md:text-left">
+                        r/{{ $subreddit->name }}
+                    </h1>
+                    <p class="text-center text-[#9C9C9C] md:text-left">{{ $subreddit->description }}</p>
+                </div>
 
-                <button
-                    class="flex-none rounded-[8px] bg-[#4F39F6] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#3B2DE0]"
-                >
-                    Criar post
-                </button>
+                <div class="flex gap-3 md:ml-auto md:flex-col">
+                    <button
+                        class="flex-none rounded-[8px] border border-[#2C2C2D] bg-transparent px-4 py-2 text-sm font-medium text-[#FDFDFD] transition-colors hover:bg-[#2C2C2D]"
+                    >
+                        Entrar
+                    </button>
+
+                    <button
+                        class="flex-none rounded-[8px] bg-[#4F39F6] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#3B2DE0]"
+                    >
+                        Criar post
+                    </button>
+                </div>
             </div>
         </div>
+
         <div class="ml-10 flex gap-4 text-sm text-[#9C9C9C]">
             <span>{{ $subreddit->posts()->count() }} posts</span>
             <span class="flex gap-1">
@@ -57,8 +64,25 @@ declare(strict_types=1);
                     <span class="text-sm text-[#9C9C9C]">{{ $post->created_at->diffForHumans() }}</span>
                 </div>
 
-                <h2 class="mb-2 text-xl font-semibold text-[#FDFDFD]">{{ $post->title }}</h2>
-                <p class="text-[#9C9C9C]">{{ $post->content }}</p>
+                <div>
+                    <h2 class="mb-2 text-xl font-semibold text-[#FDFDFD]">{{ $post->title }}</h2>
+                    <p class="text-[#9C9C9C]">{{ $post->content }}</p>
+                </div>
+
+                <div class="mt-4 flex items-center gap-4">
+                    <span class="flex gap-1 text-sm text-[#9C9C9C]">
+                        <img src="/images/comment.svg" alt="" class="h-4 w-4" />
+                        {{ $post->comments()->count() }}
+                    </span>
+                    <button class="flex items-center justify-center p-0">
+                        <img src="/images/like.svg" alt="" class="h-8 w-8" />
+                    </button>
+                    <button class="flex items-center justify-center p-0">
+                        <img src="/images/unlike.svg" alt="" class="h-8 w-8" />
+                    </button>
+
+                    <button>Responder</button>
+                </div>
             </div>
         @empty
             <div class="rounded-[12px] border border-[#2C2C2D] bg-[#131314] p-6 text-center">
@@ -67,4 +91,5 @@ declare(strict_types=1);
         @endforelse
     </div>
 </div>
-<?php 
+
+<?php

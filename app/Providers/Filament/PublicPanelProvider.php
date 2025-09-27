@@ -27,8 +27,8 @@ final class PublicPanelProvider extends PanelProvider
     {
         return $panel
             ->id('public')
+            ->path('/')
             ->default()
-            ->path('')
             ->colors([
                 'primary' => Color::Indigo,
             ])
