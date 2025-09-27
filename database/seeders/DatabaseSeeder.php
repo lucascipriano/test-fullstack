@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Subreddit;
 use App\Models\User;
@@ -31,7 +32,6 @@ final class DatabaseSeeder extends Seeder
             'user_id' => User::query()->where('email', 'lucas@gmail.com')->first()->id,
         ]);
 
-        //        criar post dentro do subreddit recém-criado e atribuir o post ao usuário aleatório
         $subreddits = Subreddit::all();
         $userIds = User::query()->pluck('id')->toArray();
         foreach ($subreddits as $subreddit) {
@@ -39,6 +39,17 @@ final class DatabaseSeeder extends Seeder
                 'subreddit_id' => $subreddit->id,
                 'user_id' => $userIds[array_rand($userIds)],
             ]);
+        }
+
+        $posts = Post::all();
+        foreach ($posts as $post) {
+            $numComments = random_int(2, 10);
+            foreach (range(1, $numComments) as $i) {
+                Comment::factory()->create([
+                    'post_id' => $post->id,
+                    'user_id' => $userIds[array_rand($userIds)],
+                ]);
+            }
         }
 
         User::factory(10)->create();
