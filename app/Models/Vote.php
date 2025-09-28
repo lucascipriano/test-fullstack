@@ -16,6 +16,7 @@ final class Vote extends Model
         'user_id',
         'post_id',
         'value',
+        'type',
     ];
 
     /**

@@ -74,12 +74,7 @@ declare(strict_types=1);
                         <img src="/images/comment.svg" alt="" class="h-4 w-4" />
                         {{ $post->comments()->count() }}
                     </span>
-                    <button class="flex items-center justify-center p-0">
-                        <img src="/images/like.svg" alt="" class="h-8 w-8" />
-                    </button>
-                    <button class="flex items-center justify-center p-0">
-                        <img src="/images/unlike.svg" alt="" class="h-8 w-8" />
-                    </button>
+                    <livewire:home.vote.index :post="$post" :key="$post->id" />
 
                     <button>Responder</button>
                 </div>

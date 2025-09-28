@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Livewire\Home;
 
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use App\Models\Post;
 use App\Models\Subreddit;
 use App\Models\User;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 final class Widgets extends Component
@@ -22,12 +22,19 @@ final class Widgets extends Component
             : collect();
 
         $userCount = User::query()->count();
-        $postCount = Post::query()->count();
+        $postsCount = Post::query()->count();
         $postUser = auth()->check() ? auth()->user()->posts->count() : 0;
 
         $subRedditsCount = Subreddit::query()->count();
         $subUser = auth()->check() ? auth()->user()->subreddits()->count() : 0;
 
-        return view('livewire.home.widgets', ['userSubreddits' => $userSubreddits, 'subRedditsCount' => $subRedditsCount, 'userCount' => $userCount, 'postCount' => $postCount, 'postUser' => $postUser, 'subUser' => $subUser]);
+        return view('livewire.home.widgets', [
+            'userSubreddits' => $userSubreddits,
+            'subRedditsCount' => $subRedditsCount,
+            'userCount' => $userCount,
+            'postsCount' => $postsCount,
+            'postUser' => $postUser,
+            'subUser' => $subUser,
+        ]);
     }
 }

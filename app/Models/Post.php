@@ -54,14 +54,29 @@ final class Post extends Model
         return $this->hasMany(Vote::class);
     }
 
-    //    Pensando no reddit, um post pode ter votos positivos e negativos
-    //    public function upvotes(): int
-    //    {
-    //        return $this->votes()->where('value', 1)->count();
-    //    }
-    //
-    //    public function downvotes(): int
-    //    {
-    //        return $this->votes()->where('value', -1)->count();
-    //    }
+    public function upvotes(): HasMany
+    {
+        return $this->votes()->where('type', 'upvote');
+    }
+
+    public function downvotes(): HasMany
+    {
+        return $this->votes()->where('type', 'downvote');
+    }
+
+    protected function getVoteScoreAttribute(): int
+    {
+        return $this->upvotes()->count() - $this->downvotes()->count();
+    }
+
+    protected function getUserVoteAttribute(): ?string
+    {
+        if (! auth()->check()) {
+            return null;
+        }
+
+        $vote = $this->votes()->where('user_id', auth()->id())->first();
+
+        return $vote?->type;
+    }
 }

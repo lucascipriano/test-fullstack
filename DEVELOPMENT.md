@@ -24,12 +24,11 @@ Resumo do dia:
 # Dia 2
 
 - [ ] Listar comentários (Comentários criados, falta criar a página livewire)
-- [ ] Refatorar livewire, eu sei mexer carai (Fazer por último)
+- [x] Refatorar livewire, eu sei mexer carai (Fazer por último)
 - [ ] Fazer sistema de votos
 - [x] Arrumar a sidebar com subreddit (resource no panel public)
 
 ## Resumo do dia 2
 
-Não deu para adiantar muita coisa, 16h, tenho que sair(sab-domingo), mas de madrugada volto para continuar.
-
-Termino cedo, hora de refatorar
+- Sidebar com subreddits funcionando, mas está jogando para /admin pegando a outra cor, mesmo deixando public com default
+- /Home refatorado, separado por component do livewire
