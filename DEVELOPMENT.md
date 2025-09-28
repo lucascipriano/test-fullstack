@@ -31,3 +31,5 @@ Resumo do dia:
 ## Resumo do dia 2
 
 Não deu para adiantar muita coisa, 16h, tenho que sair(sab-domingo), mas de madrugada volto para continuar.
+
+Termino cedo, hora de refatorar

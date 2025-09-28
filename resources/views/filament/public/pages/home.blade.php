@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 ?>
-    <livewire:home/>
-
-<?php
+<div>
+{{--    <livewire:home/>--}}
+    <livewire:home.index />
+</div>
+<?php 
