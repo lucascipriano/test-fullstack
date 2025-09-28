@@ -25,7 +25,7 @@ Resumo do dia:
 
 - [ ] Listar comentários (Comentários criados, falta criar a página livewire)
 - [x] Refatorar livewire, eu sei mexer carai (Fazer por último)
-- [ ] Fazer sistema de votos
+- [x] Fazer sistema de votos (dos posts por enquanto)
 - [x] Arrumar a sidebar com subreddit (resource no panel public)
 
 ## Resumo do dia 2
