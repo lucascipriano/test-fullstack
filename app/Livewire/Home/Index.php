@@ -12,6 +12,7 @@ final class Index extends Component
 {
     public function render(): View|Factory
     {
-        return view('livewire.home.index');
+        return view('livewire.home.index')
+            ->layout('filament::components.layouts.app');
     }
 }

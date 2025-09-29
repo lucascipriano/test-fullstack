@@ -32,4 +32,11 @@ final class Subreddit extends Model
     {
         return $this->hasMany(Post::class);
     }
+    /**
+     * @return HasMany<Comment, $this>
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

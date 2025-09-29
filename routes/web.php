@@ -15,3 +15,7 @@ Route::get('/home/{subreddit:slug}', function ($slug): Factory|View {
 
     return view('subreddit.show', ['subreddit' => $subreddit]);
 })->name('subreddit.show');
+
+Route::get('/home/{subreddit:slug}/post', function (Subreddit $subreddit) {
+    return view('subreddit.comment', compact('subreddit'));
+})->name('subreddit.comments');

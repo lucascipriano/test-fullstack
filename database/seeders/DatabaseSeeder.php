@@ -44,11 +44,23 @@ final class DatabaseSeeder extends Seeder
         $posts = Post::all();
         foreach ($posts as $post) {
             $numComments = random_int(2, 10);
+            $createdComments = [];
             foreach (range(1, $numComments) as $i) {
-                Comment::factory()->create([
+                $comment = Comment::factory()->create([
                     'post_id' => $post->id,
                     'user_id' => $userIds[array_rand($userIds)],
                 ]);
+                $createdComments[] = $comment;
+            }
+            // Cria replies para alguns comentários
+            foreach (array_slice($createdComments, 0, 2) as $parentComment) {
+                foreach (range(1, random_int(1, 3)) as $j) {
+                    Comment::factory()->create([
+                        'post_id' => $post->id,
+                        'user_id' => $userIds[array_rand($userIds)],
+                        'parent_id' => $parentComment->id,
+                    ]);
+                }
             }
         }
 

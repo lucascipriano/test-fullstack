@@ -54,6 +54,11 @@ final class Comment extends Model
         return $this->hasMany(self::class, 'parent_id');
     }
 
+    public function replies()
+    {
+        return $this->hasMany(self::class, 'parent_id');
+    }
+
     /**
      * @return HasMany<Vote, $this>
      */
