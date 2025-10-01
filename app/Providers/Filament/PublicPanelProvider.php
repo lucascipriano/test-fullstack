@@ -6,6 +6,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Admin\Resources\Subreddits\SubredditResource;
 use App\Filament\Public\Pages\Home;
+use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -34,6 +35,7 @@ final class PublicPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Indigo,
             ])
+            ->defaultThemeMode(ThemeMode::Dark)
             ->brandLogo(fn () => view('livewire.sidebar-collapse-button'))
             ->homeUrl('')
             ->viteTheme('resources/css/filament/public/theme.css')

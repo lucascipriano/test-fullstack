@@ -15,7 +15,7 @@ final class Subreddit extends Model
     /** @use HasFactory<SubredditFactory> */
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'description', 'user_id'];
+    protected $fillable = ['name', 'slug', 'description', 'user_id', 'icon_image'];
 
     /**
      * @return BelongsTo<User, $this>
@@ -32,6 +32,7 @@ final class Subreddit extends Model
     {
         return $this->hasMany(Post::class);
     }
+
     /**
      * @return HasMany<Comment, $this>
      */

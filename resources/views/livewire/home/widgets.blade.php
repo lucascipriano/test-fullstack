@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 ?>
+
 <div>
     <div class="mb-4">
         <h1 class="flex-none grow-0 self-stretch text-[24px] leading-[29px] font-semibold text-white">
@@ -39,7 +40,7 @@ declare(strict_types=1);
             <div class="flex flex-col">
                 <span class="text-[14px] leading-[14px] font-medium text-[#9C9C9C]">Quantidade de usuários</span>
 
-                <span class="text-[20px] leading-[24px] font-semibold text-[#FDFDFD]">
+                <span class="text-[20px] leading-[24px] font-semibold dark:text-[#4F4F4F]">
                     {{ $userCount }}
                 </span>
             </div>
@@ -73,7 +74,7 @@ declare(strict_types=1);
                     {{ auth()->user() ? 'Seus posts' : 'Quantidade de posts totais' }}
                 </span>
 
-                <span class="text-[20px] leading-[24px] font-semibold text-[#FDFDFD]">
+                <span class="text-[20px] leading-[24px] font-semibold dark:text-[#4F4F4F]">
                     {{ auth()->user() ? $postUser : $postsCount }}
                 </span>
             </div>
@@ -106,11 +107,12 @@ declare(strict_types=1);
                     {{ auth()->user() ? 'Seus Subs' : 'Quantidade de subs criados' }}
                 </span>
 
-                <span class="text-[20px] leading-[24px] font-semibold text-[#FDFDFD]">
+                <span class="text-[20px] leading-[24px] font-semibold dark:text-[#4F4F4F]">
                     {{ auth()->user() ? $subUser : $subRedditsCount }}
                 </span>
             </div>
         </div>
     </div>
 </div>
-<?php 
+
+<?php

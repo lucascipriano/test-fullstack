@@ -75,15 +75,6 @@ declare(strict_types=1);
                         {{ $post->comments()->count() }}
                     </span>
                     <livewire:home.vote.index :post="$post" :key="$post->id" />
-                    <div class="mt-4 flex items-center justify-between">
-                        <span class="text-sm text-[#9C9C9C]">{{ $subreddit->posts_count }} posts</span>
-                        <div class="flex gap-4">
-                            <a href="/home/{{ $subreddit->slug }}" class="text-[#6155F5] hover:underline">Ver subreddit</a>
-                            <a href="{{ route('subreddit.comments', $subreddit->slug) }}" class="text-[#6155F5] hover:underline">Ver comentários</a>
-                        </div>
-                    </div>
-
-                    <button>Responder</button>
                 </div>
             </div>
         @empty

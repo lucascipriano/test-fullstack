@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 ?>
+
 <div class="flex items-center space-x-2">
     <button
         wire:click="vote('upvote')"
@@ -33,5 +34,8 @@ declare(strict_types=1);
             style="{{ $userVote === 'downvote' ? 'filter: invert(17%) sepia(100%) saturate(7471%) hue-rotate(355deg) brightness(91%) contrast(119%);' : 'filter: brightness(0) saturate(100%) invert(1);' }}"
         />
     </button>
+
+    <button>Responder</button>
 </div>
-<?php 
+
+<?php
