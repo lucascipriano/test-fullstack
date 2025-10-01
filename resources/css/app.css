@@ -10,3 +10,20 @@
         'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+.dark .fi-topbar {
+    background: #0f0f10;
+}
+
+.fi-sidebar-header {
+    background: #f0f1fa;
+    @apply !bg-inherit shadow-none ring-0;
+}
+
+@media (min-width: 1024px) {
+    .fi-icon-btn.fi-size-md.fi-topbar-open-sidebar-btn,
+    .fi-icon-btn.fi-size-md.fi-topbar-close-sidebar-btn,
+    .fi-icon-btn.fi-size-md.fi-topbar-close-collapse-sidebar-btn {
+        display: none !important;
+    }
+}

@@ -1,0 +1,10 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/Public/**/*';
+@source '../../../../resources/views/filament/public/**/*';
+body {
+    background-color: #f5f3fc;
+}
+.dark body {
+    background-color: #18181b;
+}
