@@ -8,7 +8,7 @@ Subreddit - Post - Comentário - Voto, models com mfc
 
 # Final do primeiro dia
 
-http://localhost:8000/home - painel público
+http://localhost:8000/ - painel público
 http://localhost:8000/admin - painel admin
 
 http://localhost:8000/public/login - login público
@@ -35,7 +35,6 @@ Resumo do dia:
 - Sidebar com subreddits funcionando, mas está jogando para /admin pegando a outra cor, mesmo deixando public com default
 - /Home refatorado, separado por component do livewire
 
-
 # Dia 3
 
 - [x] Fazer funcionar no notebook da mulher.
@@ -48,3 +47,23 @@ Rodando no notebook com Windows e exibe rota do post do subreddit, precisa só l
 Preciso fazer a tela de login para o user normal, apenas do /home(public)
 
 Por estar no Windows, não consigo usar o pint, então vou dar um push com --no-verify
+
+# Dia 4 - final
+
+- [x] notificação login
+- [ ] socialite
+- [ ] resource do subreddit no public
+
+Irei deixar dark mode, light mode irá consumir mais tempo até detalhar, mesmo sabendo que é só codar light e ir usando dark: do tailpinto
+
+## Resumo dia 4
+
+Não irei conseguir terminal da forma que desejo, mas entreguei focando no básico e fazendo UI.
+
+Irei pivotar e recomeçar do zero usando custom page da forma correta com livewire, começar codando light theme e depois dark, isso irá consumir menos tempo.
+
+Falta o participar do subreddit, mas o básico porém não fiz.
+
+O que está quebrado de fato é o svg, porém está subindo, mas não foquei na sidebar
+
+A sidebar poderia ter sido feita do zero, mas tentei reutilizar do próprio filament, isso me fodeu.
